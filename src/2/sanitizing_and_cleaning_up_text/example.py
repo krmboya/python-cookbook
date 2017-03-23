@@ -8,9 +8,9 @@ print(s)
 
 # (a) Remapping whitespace
 remap = {
-    ord('\t') : ' ',
-    ord('\f') : ' ',
-    ord('\r') : None      # Deleted
+    ord('\t'): ' ',
+    ord('\f'): ' ',
+    ord('\r'): None      # Deleted
 }
 
 a = s.translate(remap)
@@ -23,9 +23,11 @@ cmb_chrs = dict.fromkeys(c for c in range(sys.maxunicode)
                          if unicodedata.combining(chr(c)))
 
 b = unicodedata.normalize('NFD', a)
+print('normalized:', b)
+
 c = b.translate(cmb_chrs)
 print('accents removed:', c)
 
 # (c) Accent removal using I/O decoding
-d = b.encode('ascii','ignore').decode('ascii')
+d = b.encode('ascii', 'ignore').decode('ascii')
 print('accents removed via I/O:', d)
