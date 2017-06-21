@@ -152,6 +152,7 @@ class ExpressionTreeBuilder(ExpressionEvaluator):
 
 if __name__ == '__main__':
     e = ExpressionTreeBuilder()
+    print(e.parse('1'))
     print(e.parse('2 + 3'))
     print(e.parse('2 + 3 * 4'))
     print(e.parse('2 + (3 + 4) * 5'))
